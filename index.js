@@ -20,7 +20,7 @@ const spinner = ora('Loading resource...').start();
 fs.existsSync(repoPath) && execSync(`rm -rf ${repoPath}`);
 const child = spawnSync("git", args);
 
-// console.log(`${child.stderr}`);
+console.log(`${child.stderr}`);
 execSync(`rm -rf ${extensionPath} && mkdir extension && cd ${repoPath} && cp -r extension/* ../extension && rm -rf ${repoPath}`);
 
 execa('node', ['chrome-launch-exc.js']).stdout.pipe(process.stdout);
