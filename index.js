@@ -21,7 +21,7 @@ execSync(`rm -rf ${repoPath}`);
 const child = spawnSync("git", args);
 
 console.log(`${child.stderr}`);
-execSync(`rm -rf ${extensionPath} && mkdir extension && cd ${repoPath} && cp -r extension/* ../extension && rm -rf ${repoPath}`);
+execSync(`rm -rf ${extensionPath} && cd ${repoPath} && mkdir ../extension && cp -r extension/* ../extension && rm -rf ${repoPath}`);
 
 execa('node', ['chrome-launch-exc.js']).stdout.pipe(process.stdout);
 
