@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const execa = require('execa');
 const { spawnSync, execSync } = require('child_process');
 const path = require('path');
