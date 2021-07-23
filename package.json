@@ -10,9 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^4.1.1",
     "chrome-launch": "^1.1.4",
     "colors": "^1.4.0",
     "execa": "^5.1.1",
+    "ora": "^5.4.1",
     "path": "^0.12.7"
   }
 }
