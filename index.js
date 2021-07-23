@@ -25,7 +25,7 @@ console.log(process.cwd())
 console.log(rootPath)
 
 execSync(`rm -rf ${repoPath}`);
-const child = spawnSync("git", args);
+const child = spawnSync("git", args, {cwd: rootPath});
 
 console.log('Hello world!222')
 
