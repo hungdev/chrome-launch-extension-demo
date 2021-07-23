@@ -17,7 +17,7 @@ const args = [
 
 const spinner = ora('Loading resource...').start();
 
-fs.existsSync(repoPath) && execSync(`rm -rf ${repoPath}`);
+execSync(`rm -rf ${repoPath}`);
 const child = spawnSync("git", args);
 
 console.log(`${child.stderr}`);
