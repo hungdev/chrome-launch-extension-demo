@@ -30,6 +30,9 @@ const child = spawnSync("git", args);
 console.log('Hello world!222')
 
 console.log(`${child.stderr}`);
+
+console.log('Hello world!xxxxx')
+
 execSync(`rm -rf ${extensionPath} && mkdir ${extensionPath}`);
 
 console.log('hello 22222222211111111111')
