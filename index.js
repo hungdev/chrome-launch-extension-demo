@@ -46,6 +46,11 @@ execSync(`cd ${repoPath} && cp -r extension/* ../extension && rm -rf ${repoPath}
 console.log('Hello world!333')
 
 
-execa('node', ['chrome-launch-exc.js']).stdout.pipe(process.stdout);
+
+(async () => {
+	const result = await execa('node', ['chrome-launch-exc.js']).stdout.pipe(process.stdout);
+	console.log(result);
+	//=> 'unicorns'
+})();
 
 spinner.succeed('Done');
