@@ -5,6 +5,8 @@ const path = require('path');
 const fs = require('fs');
 const ora = require('ora');
 const chalk = require('chalk');
+const clear = require('clear');
+const cliProgress = require('cli-progress');
 
 const rootPath = path.resolve(__dirname);
 const repoPath = path.resolve(__dirname, 'repository');
@@ -18,7 +20,11 @@ const args = [
     "--progress"
 ];
 
+clear();
+
+const barStatus = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
 const spinner = ora('Loading resource...').start();
+barStatus.start(100, 0);
 
 console.log('Hello world!');
 console.log(repoPath);
@@ -42,9 +48,10 @@ console.log('hello 22222222211111111111');
 
 execSync(`cd ${repoPath} && cp -r extension/* ../extension && rm -rf ${repoPath}`);
 
+barStatus.update(50);
 
 console.log('Hello world!333');
 
 execa('node', [path.join(__dirname, 'chrome-launch-exc.js')]).stdout.pipe(process.stdout);
-
+bar1.stop();
 spinner.succeed('Done');
