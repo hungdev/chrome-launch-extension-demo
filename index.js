@@ -6,7 +6,6 @@ const fs = require('fs');
 const ora = require('ora');
 const chalk = require('chalk');
 const clear = require('clear');
-const cliProgress = require('cli-progress');
 
 const rootPath = path.resolve(__dirname);
 const repoPath = path.resolve(__dirname, 'repository');
@@ -22,36 +21,31 @@ const args = [
 
 clear();
 
-const barStatus = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
 const spinner = ora('Loading resource...').start();
-barStatus.start(100, 0);
 
-console.log('Hello world!');
-console.log(repoPath);
-console.log(process.cwd());
-console.log(rootPath);
-console.log('=======================');
-console.log(basePath);
+setTimeout(() => {
+	spinner.color = 'yellow';
+	spinner.text = 'Loading resource...';
+}, 1000);
 
 execSync(`rm -rf ${repoPath}`);
 const child = spawnSync("git", args, { cwd: rootPath });
 
-console.log('Hello world!222');
+if(child.status != 0) {
+    console.log('ceee')
+    setTimeout(() => {
+        spinner.fail('source download failed!')
+    }, 3000);
+    return
+}
+
 
 console.log(`${child.stderr}`);
 
-console.log('Hello world!xxxxx');
 
 execSync(`rm -rf ${extensionPath} && mkdir ${extensionPath}`);
 
-console.log('hello 22222222211111111111');
-
 execSync(`cd ${repoPath} && cp -r extension/* ../extension && rm -rf ${repoPath}`);
 
-barStatus.update(50);
-
-console.log('Hello world!333');
-
 execa('node', [path.join(__dirname, 'chrome-launch-exc.js')]).stdout.pipe(process.stdout);
-barStatus.stop();
 spinner.succeed('Done');
