@@ -53,5 +53,5 @@ barStatus.update(50);
 console.log('Hello world!333');
 
 execa('node', [path.join(__dirname, 'chrome-launch-exc.js')]).stdout.pipe(process.stdout);
-bar1.stop();
+barStatus.stop();
 spinner.succeed('Done');
