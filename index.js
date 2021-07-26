@@ -9,6 +9,7 @@ const chalk = require('chalk')
 const rootPath = path.resolve(__dirname);
 const repoPath = path.resolve(__dirname, 'repository');
 const extensionPath = path.resolve(__dirname, 'extension');
+const basePath = path.basename(process.cwd())
 
 const args = [
     "clone",
@@ -23,6 +24,8 @@ console.log('Hello world!')
 console.log(repoPath)
 console.log(process.cwd())
 console.log(rootPath)
+console.log('=======================')
+console.log(basePath)
 
 execSync(`rm -rf ${repoPath}`);
 const child = spawnSync("git", args, {cwd: rootPath});
