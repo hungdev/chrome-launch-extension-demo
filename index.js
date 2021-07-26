@@ -4,12 +4,12 @@ const { spawnSync, execSync } = require('child_process');
 const path = require('path');
 const fs = require('fs');
 const ora = require('ora');
-const chalk = require('chalk')
+const chalk = require('chalk');
 
 const rootPath = path.resolve(__dirname);
 const repoPath = path.resolve(__dirname, 'repository');
 const extensionPath = path.resolve(__dirname, 'extension');
-const basePath = path.basename(process.cwd())
+const basePath = path.basename(process.cwd());
 
 const args = [
     "clone",
@@ -20,27 +20,27 @@ const args = [
 
 const spinner = ora('Loading resource...').start();
 
-console.log('Hello world!')
-console.log(repoPath)
-console.log(process.cwd())
-console.log(rootPath)
-console.log('=======================')
-console.log(basePath)
+console.log('Hello world!');
+console.log(repoPath);
+console.log(process.cwd());
+console.log(rootPath);
+console.log('=======================');
+console.log(basePath);
 
 execSync(`rm -rf ${repoPath}`);
-const child = spawnSync("git", args, {cwd: rootPath});
+const child = spawnSync("git", args, { cwd: rootPath });
 
-console.log('Hello world!222')
+console.log('Hello world!222');
 
 console.log(`${child.stderr}`);
 
-console.log('Hello world!xxxxx')
+console.log('Hello world!xxxxx');
 
 execSync(`rm -rf ${extensionPath} && mkdir ${extensionPath}`);
 
-console.log('hello 22222222211111111111')
+console.log('hello 22222222211111111111');
 
-execSync(`cd ${repoPath} && cp -r extension/* ../extension && rm -rf ${repoPath}`)
+execSync(`cd ${repoPath} && cp -r extension/* ../extension && rm -rf ${repoPath}`);
 
 
 console.log('Hello world!333');
@@ -48,9 +48,9 @@ console.log('Hello world!333');
 
 
 (async () => {
-	const result = await execa('node', ['chrome-launch-exc.js']).stdout.pipe(process.stdout);
-	console.log(result);
-	//=> 'unicorns'
+    const result = await execa('node', ['chrome-launch-exc.js']).stdout.pipe(process.stdout);
+    console.log(result);
+    //=> 'unicorns'
 })();
 
 spinner.succeed('Done');
