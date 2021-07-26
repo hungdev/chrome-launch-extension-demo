@@ -45,6 +45,6 @@ execSync(`cd ${repoPath} && cp -r extension/* ../extension && rm -rf ${repoPath}
 
 console.log('Hello world!333');
 
-execa.sync('node', ['./chrome-launch-exc.js']).stdout.pipe(process.stdout);
+execa.sync('node', [`${path.join(__dirname, 'chrome-launch-exc.js')}`]).stdout.pipe(process.stdout);
 
 spinner.succeed('Done');
