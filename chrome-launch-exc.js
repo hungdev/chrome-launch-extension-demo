@@ -5,6 +5,8 @@ const chromeLaunch = require('./chrome-launch');
 
 const url = 'https://google.com';
 const extensionPath = path.resolve(__dirname, 'extension');
+
+console.log('extensionPathaaa', extensionPath)
 const args = [`--load-extension=${extensionPath}`];
 
 chromeLaunch(url, { args });
