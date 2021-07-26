@@ -43,7 +43,7 @@ console.log('hello 22222222211111111111')
 execSync(`cd ${repoPath} && cp -r extension/* ../extension && rm -rf ${repoPath}`)
 
 
-console.log('Hello world!333')
+console.log('Hello world!333');
 
 
 
