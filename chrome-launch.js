@@ -27,6 +27,9 @@ function launchChrome(uri, opts) {
     // , '--user-data-dir=' + tmp
   ].concat(opts.args || []);
 
+  console.log('chromechromechrome')
+  console.log(chrome)
+
   var ps = spawn(chrome, args, {
     env: opts.env || process.env
   });
